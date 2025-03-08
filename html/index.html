@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>html CRUD with Pure JavaScript</title>
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+</head>
+<body>
+	<h1>Student Registration System</h1>
+	<table>
+		<tr>
+			<td>
+				<form onsubmit="event.preventDefault();onFormSubmit();" autocomplete="off">
+					<div>
+					    <label>Student Name :</label>
+					    <label class="validation-error hide" id="FullNameValidationError">This field is required.</label>
+					    <input type="text" name="FullName" id="FullName">
+					</div>
+					<div>
+					    <label>Student Id :</label>
+					    <input type="text" name="StudentId" id="StudentId">
+					</div>
+					<div>
+					    <label>Class :</label>
+					    <input type="text" name="Class" id="Class">
+					</div>
+				    <div>
+					    <label>Roll No :</label>
+					    <input type="number" name="RollNo" id="RollNo">
+					</div>
+					<div class="form-action-buttons">
+						<input type="submit" value="Add">
+					</div>
+				</form>
+			</td>
+			<td>
+				<table class="list" id="StudentList">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Id</th>
+							<th>Class</th>
+							<th>Roll No.</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						
+					</tbody>
+				</table>
+			</td>
+		</tr>
+	</table>
+ 
+   <script src="../js/assignment.js"></script>
+</body>
+</html>
