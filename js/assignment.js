@@ -1,20 +1,12 @@
-//hello india
-// Added by Shashikant
 var selectedRow = null
 
-
-
 function onFormSubmit() {
-	console.log("ssas")
-	// if(validate()) {
      var formData = readFormData();
-     insertNewRecord(formData);
-    // if (selectedRow == null)
-    //     insertNewRecord(formData);
-    // else
-     //	updateRecord(formData)
-    // resetForm();
-    // }
+     if (selectedRow == null)
+        insertNewRecord(formData);
+     else
+     	updateRecord(formData)
+     resetForm();
 }
 
 function readFormData() {
@@ -53,18 +45,19 @@ function resetForm() {
 
 function onEdit(td) {
 	selectedRow = td.parentElement.parentElement;
+	console.log('selectedRow: ', selectedRow.cells);
 	document.getElementById("FullName").value = selectedRow.cells[0].innerHTML;
-	document.getElementById("StudentId").value = selectedRow.cells[0].innerHTML;
-	document.getElementById("Class").value = selectedRow.cells[0].innerHTML;
-	document.getElementById("RollNo").value = selectedRow.cells[0].innerHTML;
+	document.getElementById("StudentId").value = selectedRow.cells[1].innerHTML;
+	document.getElementById("Class").value = selectedRow.cells[2].innerHTML;
+	document.getElementById("RollNo").value = selectedRow.cells[3].innerHTML;
 }
 
-// function updateRecord(formData) {
-// 	selectedRow.cells[0].innerHTML = formData.FullName;
-// 	selectedRow.cells[1].innerHTML = formData.StudentId;
-// 	selectedRow.cells[2].innerHTML = formData.Class;
-// 	selectedRow.cells[3].innerHTML = formData.RollNo;
-// }
+function updateRecord(formData) {
+	selectedRow.cells[0].innerHTML = formData.FullName;
+	selectedRow.cells[1].innerHTML = formData.StudentId;
+	selectedRow.cells[2].innerHTML = formData.Class;
+	selectedRow.cells[3].innerHTML = formData.RollNo;
+}
 
 function onDelete(td) {
 	if (confirm('Are you sure to detele this record ?')) {
@@ -72,16 +65,4 @@ function onDelete(td) {
 	    document.getElementById("StudentList").deleteRow(row.rowIndex);
 	    resetForm();
 	    }
-	}
-
-	function validate() {
-		isValid = true;
-		if (document.getElementById("FullName").value == "") {
-            isValid = false;
-            document.getElementById("FullNameValidationError").classList.remove("hide");
-		} else {
-			isValid = true;
-			if (!document.getElementById("FullNameValidationError").classList.contains("hide"))
-				document.getElementById("FullNameValidationError").classList.add("hide");
-		}
 	}

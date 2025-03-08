@@ -51,12 +51,3 @@ a{
 	color: #0000ee;
 	margin-right: 4px;
 }
-
-label.validation-error{
-	color: red;
-	margin-left: 5px;
-}
-
-.hide{
-	display: none;
-}
